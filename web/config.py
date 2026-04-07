@@ -2,10 +2,10 @@ import os
 
 
 with open(os.environ['POSTGRES_USER_FILE']) as f:
-    _db_user = f.read()
+    _db_user = f.read().strip()
 
 with open(os.environ['POSTGRES_PASSWORD_FILE']) as f:
-    _db_pass = f.read()
+    _db_pass = f.read().strip()
 
 
 class BaseConfig(object):

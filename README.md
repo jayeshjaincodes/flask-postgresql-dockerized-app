@@ -1,11 +1,103 @@
-## Simple web application based on Python-Flask and Postgres with docker-compose-based deploy
+# 🚀 Flask + PostgreSQL Dockerized App
 
-### How to:
+## 📌 Overview
 
-1. Install [docker](https://docs.docker.com/engine/install/ubuntu/) and [docker-compose](https://docs.docker.com/compose/install/linux/#install-the-plugin-manually)
-2. Create ```./secrets/postgres_password.txt``` and ```./secrets/postgres_user.txt``` with your specific auth data.
-(Examples of such files you can find in ```./secrets/``` folder)
-3. ```sudo docker compose build```
-4. ```sudo docker compose up -d```
-5. Go to localhost in your browser
-6. To disable application type ```docker compose down```
+This project is a multi-container application using Flask, PostgreSQL, Nginx, and Docker. It demonstrates containerization, networking, and persistent storage.
+
+---
+
+## ⚙️ Features
+
+* Multi-container architecture
+* Reverse proxy using Nginx
+* Persistent database storage using Docker volumes
+* Secure credential handling using Docker secrets
+* Production-ready setup with Gunicorn
+
+---
+
+## 🔐 Setup Secrets (IMPORTANT)
+
+Create a `secrets/` folder and add the following files:
+
+### 📄 `secrets/postgres_user.txt`
+
+```
+admin
+```
+
+### 📄 `secrets/postgres_password.txt`
+
+```
+password
+```
+
+---
+
+## ▶️ How to Run
+
+### 🟢 Build & Start Containers
+
+```
+docker compose up --build
+```
+
+---
+
+### 🟢 Open in Browser
+
+```
+http://localhost
+```
+
+---
+
+## 🧪 Test
+
+* Add a post using the UI
+* Refresh page → data should persist
+
+---
+
+## 💾 Data Persistence
+
+```
+docker compose down
+```
+
+→ keeps data
+
+```
+docker compose down -v
+```
+
+→ deletes all data
+
+---
+
+## 🛠 Useful Commands
+
+### Stop containers
+
+```
+docker compose down
+```
+
+### Rebuild containers
+
+```
+docker compose up --build
+```
+
+### View logs
+
+```
+docker compose logs -f
+```
+
+### Check running containers
+
+```
+docker ps
+```
+
